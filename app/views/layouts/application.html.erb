@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>brsl.am</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash[:shortened_id].present? %>
+  <p class="short-link">
+    The shortened URL is available <%= link_to 'here', url_url(flash[:shortened_id]) %>. (Right click to copy).
+  </p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<h1>Shorten your URL</h1>
+
+<%= form_for @shortened_url do |form| %>
+  <p>
+    <%= form.label :url, 'Your link:' %>
+    <%= form.text_field :url %>
+  </p>
+
+  <% if @shortened_url.errors[:url].any? %>
+    <p class='error-messages'>
+      The URL <%= @shortened_url.errors[:url].to_sentence %>.
+    </p>
+  <% end %>
+
+  <p class='buttons'>
+    <%= form.submit 'Shorten URL' %>
+  </p>
+<% end %>
